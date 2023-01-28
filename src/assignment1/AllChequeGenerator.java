@@ -1,7 +1,6 @@
 package assignment1;
 
-public interface allChequeInterface {
-	
+public interface AllChequeGenerator {
 	public void getCheque();
-	
 }
+

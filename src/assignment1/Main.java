@@ -5,7 +5,9 @@ import java.util.Scanner;
 public class Main {
 	static int idCounter=0;
 	static Scanner userInput=new Scanner(System.in);
-	static ArrayList<allChequeInterface> allPayables=new ArrayList<>();
+	
+	static ArrayList<AllChequeGenerator> allPayables=new ArrayList<>();
+	
 	public static void main(String[] args) {
 		boolean programRunFlag=true;
 		while (programRunFlag) {
@@ -23,9 +25,8 @@ public class Main {
 				}
 				
 				case 3:{
-					for (allChequeInterface o : allPayables) {
-						o.getCheque();
-//						System.out.println("Class "+o.toString());
+					for (AllChequeGenerator arrayObjects : allPayables) {
+						arrayObjects.getCheque();
 					}
 					break;
 				}
@@ -105,7 +106,15 @@ public class Main {
 		String nameOftheCompany=userInput.nextLine();
 		System.out.println("Amount to be paid");
 		double amountToBePaid= Double.parseDouble(userInput.nextLine());
+		System.out.println("Enter Month");
+		String month=userInput.nextLine().trim();
+		System.out.println("Enter Day");
+		int day=Integer.parseInt(userInput.nextLine().trim());
+		System.out.println("Enter Year");
+		int year= Integer.parseInt(userInput.nextLine().trim());
 		
+		Bill bills=new Bill(nameOftheCompany, amountToBePaid, month, day, year);
+		allPayables.add(bills);
 	}
 
 }
