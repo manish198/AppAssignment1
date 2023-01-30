@@ -7,6 +7,14 @@ public class Bill implements AllChequeGenerator {
 	int day;
 	int year;
 	
+	/**
+	 * This is a constructor for Bill class.
+	 * @param companyName
+	 * @param amountDue
+	 * @param month
+	 * @param day
+	 * @param year
+	 */
 	public Bill(String companyName, double amountDue, String month,int day,int year) {
 		this.nameOfTheCompany=companyName;
 		this.amountToBePaid=amountDue;
@@ -15,10 +23,12 @@ public class Bill implements AllChequeGenerator {
 		this.year=year;
 	}
 	
-
+	/**
+	 * This method is overridden method of AllChequeGenerator interface to generate a cheque.
+	 */
 	@Override
-	public void getCheque() {
-		System.out.println("Cheques num: " + Math.random() + "\nPay to: " +
-		this.nameOfTheCompany + "\nAmount to be paid: " + this.amountToBePaid);
+	public void getCheque(int chequeNumber) {
+		System.out.println("Cheques num: " + chequeNumber + "\nPay to: " +
+		this.nameOfTheCompany + "\nAmount to be paid: " + this.amountToBePaid +"\n");
 	}
 }

@@ -6,12 +6,19 @@ public abstract class Employee implements AllChequeGenerator {
 	protected int age;
 	protected int id;
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public abstract double getSalary();
 	
+	/**
+	 * This method is overridden method of AllChequeGenerator interface to generate a cheque.
+	 */
 	@Override
-	public void getCheque() {
-		System.out.println("Cheques num: " + Math.random() + "\nPay to: " +
-		this.firstName + " " + this.lastName + "\nAmount to be paid: " +this.getSalary());
+	public void getCheque(int chequeNumber) {
+		System.out.println("Cheques num: " + chequeNumber + "\nPay to: " +
+		this.firstName + " " + this.lastName + "\nAmount to be paid: " +this.getSalary()+"\n");
 	}
 	
 }
