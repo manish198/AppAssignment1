@@ -5,6 +5,7 @@
 
 package assignment1;
 import java.util.ArrayList;
+import assignment1.Month;
 import java.util.HashMap;
 import java.util.Scanner;
 public class Main {
@@ -16,7 +17,6 @@ public class Main {
 	
 	public static void main(String[] args) {
 		boolean programRunFlag=true;						//Flag to run program in a loop.
-		
 		while (programRunFlag) {
 			System.out.println("Welcome!!! Enter Your Choice. \n 1. Add an Employee \n 2. Add a Bill \n 3. Issue cheques \n 4. Exit");
 			int choice= Integer.parseInt(userInput.nextLine());
@@ -84,7 +84,7 @@ public class Main {
 			System.out.println("Enter the salary");
 			double salary=Double.parseDouble(userInput.nextLine());
 			Employee fullTimer=new FulltimeEmployee(firstName, lastName, age, id, salary);
-			allPayables.add(fullTimer);
+			allPayables.add(fullTimer);							//adding fulltime employee to the array.
 			break;
 		}
 		//Case 2 adds parttime employee
@@ -104,7 +104,7 @@ public class Main {
 			double noOfHoursWorked= Double.parseDouble(userInput.nextLine().trim());
 			
 			Employee partTimer=new PartTimeEmployee(firstName, lastName, age, id, echelonRateMap.get(echelon),noOfHoursWorked);
-			allPayables.add(partTimer);
+			allPayables.add(partTimer);							//adding parttime employee to the array.
 			break;
 		}
 		
@@ -121,8 +121,17 @@ public class Main {
 		String nameOftheCompany=userInput.nextLine();
 		System.out.println("Amount to be paid");
 		double amountToBePaid= Double.parseDouble(userInput.nextLine());
-		System.out.println("Enter Month");
-		String month=userInput.nextLine().trim();
+		System.out.println("Choose Month");
+		for(Month m: Month.values()){
+				System.out.println(m.getValue()+" for "+m.toString());				
+		}
+		int userMonth=Integer.parseInt(userInput.nextLine().trim());
+		String month="";
+		for(Month m: Month.values()){
+			if (m.getValue()==userMonth) {
+				month=m.toString();
+			}
+		}
 		boolean dateCheck=false;
 		int day=0;
 		while(!dateCheck) {
@@ -137,7 +146,6 @@ public class Main {
 			}
 		}
 		
-	
 		System.out.println("Enter Year");
 		int year= Integer.parseInt(userInput.nextLine().trim());
 		
